@@ -6,7 +6,7 @@ import ENV from '../config.js';
 
 // https://ethereal.email/create
 let nodeConfig = {
-    host: "smtp.ethereal.email",
+    host: "smtp.gmail.com",
     port: 587,
     secure: false, // true for 465, false for other ports
     auth: {

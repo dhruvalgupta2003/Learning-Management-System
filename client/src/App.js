@@ -9,6 +9,7 @@ import Profile from "./components/Profile.js";
 import Recovery from "./components/Recovery.js";
 import Password from "./components/Password.js";
 import PageNotFound from "./components/PageNotFound.js";
+import Topbar from './components/Topbar.jsx';
 
 /** auth middleware */
 import { AuthorizeUser, ProtectRoute } from './middleware/auth.js'
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
     {
         path: '/reset',
         element : <Reset></Reset>
+    },
+    {
+        path: '/admin',
+        element : <Topbar></Topbar>
     },
     {
         path: '*',
