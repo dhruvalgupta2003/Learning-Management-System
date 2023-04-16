@@ -10,6 +10,7 @@ import Recovery from "./components/Recovery.js";
 import Password from "./components/Password.js";
 import PageNotFound from "./components/PageNotFound.js";
 import Topbar from './components/Topbar.jsx';
+import CourseRecommender from "./components/CourseRecommender.jsx";
 
 /** auth middleware */
 import { AuthorizeUser, ProtectRoute } from './middleware/auth.js'
@@ -43,6 +44,10 @@ const router = createBrowserRouter([
     {
         path: '/admin',
         element : <Topbar></Topbar>
+    },
+    {
+        path: '/recommend',
+        element : <CourseRecommender></CourseRecommender>
     },
     {
         path: '*',
