@@ -1,4 +1,6 @@
-import UserModel from '../model/User.model.js'
+import UserModel from '../model/User.model.js';
+import Course from "../model/Course.model.js";
+import Teacher from "../model/Teacher.model.js";
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import ENV from '../config.js'
@@ -275,3 +277,149 @@ export async function resetPassword(req,res){
 }
 
 
+// ------------------------------------ STUDENT COURSES CONTROLLER -------------------------------------------------------------
+
+// Get all courses
+// GET http://localhost:8080/api/courses: returns all courses
+export async function getCourses(req, res) {
+    try {
+      const courses = await Course.find();
+      res.json(courses);
+    } catch (err) {
+      console.error(err);
+      res.status(500).send('Server Error');
+    } 
+  }
+  
+  // Get a course by ID
+  //GET http://localhost:8080/api/courses/:id: returns a single course by ID
+  export async function getCourseById(req, res) {
+    try {
+      const course = await Course.findById(req.params.id);
+      if (!course) {
+        return res.status(404).send('Course not found');
+      }
+      res.json(course);
+    } catch (err) {
+      console.error(err);
+      res.status(500).send('Server Error');
+    }
+  }
+  
+  // Create a new course
+  //   POST http://localhost:8080/api/courses: creates a new course
+  export async function createCourse(req, res) {
+    try {
+      const course = new Course(req.body);
+      await course.save();
+      res.json(course);
+    } catch (err) {
+      console.error(err);
+      res.status(500).send('Server Error');
+    }
+  }
+  
+  // Update an existing course by ID
+//   PUT http://localhost:8080/api/courses/:id: updates an existing course by ID
+  export async function updateCourseById(req, res) {
+    try {
+      const course = await Course.findByIdAndUpdate(req.params.id, req.body, {
+        new: true
+      });
+      if (!course) {
+        return res.status(404).send('Course not found');
+      }
+      res.json(course);
+    } catch (err) {
+      console.error(err);
+      res.status(500).send('Server Error');
+    }
+  }
+  
+  // Delete an existing course by ID
+//   DELETE http://localhost:8080/api/courses/:id: deletes an existing course by ID
+  export async function deleteCourseById(req, res) {
+    try {
+      const course = await Course.findByIdAndRemove(req.params.id);
+      if (!course) {
+        return res.status(404).send('Course not found');
+      }
+      res.send('Course deleted successfully');
+    } catch (err) {
+      console.error(err);
+      res.status(500).send('Server Error');
+    }
+  }
+  
+//   ----------------------------------------- TEACHER Controller -----------------------------------------------------------
+// Get all teachers
+// GET http://localhost:8080/api/teachers: returns all teachers
+export async function getTeachers(req, res) {
+    try {
+      const teachers = await Teacher.find();
+      res.json(teachers);
+    } catch (err) {
+      console.error(err);
+      res.status(500).send('Server Error');
+    } 
+  }
+  
+  // Get a teacher by ID
+  //GET http://localhost:8080/api/teachers/:id: returns a single teacher by ID
+  export async function getTeacherById(req, res) {
+    try {
+      const teacher = await Teacher.findById(req.params.id);
+      if (!teacher) {
+        return res.status(404).send('Teacher not found');
+      }
+      res.json(teacher);
+    } catch (err) {
+      console.error(err);
+      res.status(500).send('Server Error');
+    }
+  }
+  
+  // Create a new teacher
+  //   POST http://localhost:8080/api/teachers: adds a new teacher
+  export async function createTeacher(req, res) {
+    try {
+      const teacher = new Teacher(req.body);
+      await teacher.save();
+      res.json(teacher);
+    } catch (err) {
+      console.error(err);
+      res.status(500).send('Server Error');
+    }
+  }
+  
+  // Update an existing teacher by ID
+//   PUT http://localhost:8080/apiteachers/:id: updates an existing teacher by ID
+  export async function updateTeacherById(req, res) {
+    try {
+      const teacher = await Teacher.findByIdAndUpdate(req.params.id, req.body, {
+        new: true
+      });
+      if (!teacher) {
+        return res.status(404).send('Teacher not found');
+      }
+      res.json(teacher);
+    } catch (err) {
+      console.error(err);
+      res.status(500).send('Server Error');
+    }
+  }
+  
+  // Delete an existing teacher by ID
+//   DELETE http://localhost:8080/api/teachers/:id: deletes an existing teacher by ID
+  export async function deleteTeacherById(req, res) {
+    try {
+      const teacher = await Teacher.findByIdAndRemove(req.params.id);
+      if (!teacher) {
+        return res.status(404).send('Teacher not found');
+      }
+      res.send('Teacher deleted successfully');
+    } catch (err) {
+      console.error(err);
+      res.status(500).send('Server Error');
+    }
+  }

@@ -1,10 +1,10 @@
-const mongoose = require('mongoose')
+import mongoose from "mongoose";
 const Schema = mongoose.Schema
 
 const courseSchema = new Schema({
     imageUrl: {
         type: String,
-        default: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b'
+        default: 'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80'
     },
     title: {
         type: String,
@@ -45,7 +45,7 @@ const courseSchema = new Schema({
     },
     videos: {
         type: [String],
-        default: 'https://www.youtube.com/watch?v=I_jSd4Wf7ck'
+        default: 'https://youtu.be/HcOc7P5BMi4'
     },
     owner: {
         type: Schema.Types.ObjectId,
@@ -55,6 +55,5 @@ const courseSchema = new Schema({
 
 
 
-const Course = mongoose.model('Course', courseSchema)
 
-module.exports = Course
+export default mongoose.model('Course', courseSchema);

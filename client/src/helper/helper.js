@@ -117,3 +117,58 @@ export async function resetPassword({ username ,password}){
     }
 }
 
+/** --------------------------------------- Course ------------------------------------------------------------------------------------ */
+// Get all courses
+export async function getCourses() {
+    try {
+      const response = await axios.get('/api/courses');
+      return response.data;
+    } catch (err) {
+      console.error(err);
+      throw err;
+    }
+  }
+  
+  // Get a course by ID
+  export async function getCourseById(id) {
+    try {
+      const response = await axios.get(`/api/courses/${id}`);
+      return response.data;
+    } catch (err) {
+      console.error(err);
+      throw err;
+    }
+  }
+  
+  // Create a new course
+  export async function createCourse(courseData) {
+    try {
+      const response = await axios.post('/api/courses', courseData);
+      return response.data;
+    } catch (err) {
+      console.error(err);
+      throw err;
+    }
+  }
+  
+  // Update an existing course by ID
+  export async function updateCourseById(id, courseData) {
+    try {
+      const response = await axios.put(`/api/courses/${id}`, courseData);
+      return response.data;
+    } catch (err) {
+      console.error(err);
+      throw err;
+    }
+  }
+  
+  // Delete an existing course by ID
+  export async function deleteCourseById(id) {
+    try {
+      const response = await axios.delete(`/api/courses/${id}`);
+      return response.data;
+    } catch (err) {
+      console.error(err);
+      throw err;
+    }
+  }
