@@ -68,7 +68,7 @@ export default function Register() {
               <button className={styles.btn} type='submit'>Register</button>
             </div>
             <div className="text-center py-4">
-              <span className='text-grey-500'>Already Registered? <Link className='text-red-500' to='/'>Login Now</Link></span>
+              <span className='text-grey-500'>Already Registered? <Link className='text-red-500' to='/login'>Login Now</Link></span>
 
             </div>
           </form>

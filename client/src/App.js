@@ -11,7 +11,7 @@ import Password from "./components/Password.js";
 import PageNotFound from "./components/PageNotFound.js";
 import Topbar from './components/Topbar.jsx';
 import CourseRecommender from "./components/CourseRecommender.jsx";
-
+import Dashboard from './pages/dashboard.jsx';
 /** auth middleware */
 import { AuthorizeUser, ProtectRoute } from './middleware/auth.js'
 
@@ -19,6 +19,10 @@ import { AuthorizeUser, ProtectRoute } from './middleware/auth.js'
 const router = createBrowserRouter([
     {
         path: '/',
+        element: <Dashboard></Dashboard>
+    },
+    {
+        path: '/login',
         element: <Username></Username>
     },
     {
