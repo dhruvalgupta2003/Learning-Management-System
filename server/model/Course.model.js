@@ -20,7 +20,7 @@ const courseSchema = new Schema({
     },
     difficultyLevel: {
         type: String,
-        enum: ['Beginner', 'Intermidiate', 'Advanced', 'All levels'],
+        enum: ['Beginner', 'Intermediate', 'Advanced', 'All levels'],
         default: 'All levels'
     },
     description: {

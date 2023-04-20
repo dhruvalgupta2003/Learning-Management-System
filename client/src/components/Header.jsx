@@ -16,6 +16,7 @@ const Header = () => {
         <Link class="mr-5 hover:text-gray-900" to="/courses">Explore Courses</Link>
         <Link class="mr-5 hover:text-gray-900">Course Creation</Link>
         <Link class="mr-5 hover:text-gray-900" to="/about">About</Link>
+        <Link class="mr-5 hover:text-gray-900" to="/recommend">Recommend</Link>
         <Link class="mr-5 hover:text-gray-900" to="/contact">Contact Us</Link>
       </nav>
       <Link to='/register'><button class="inline-flex items-center text-white bg-green-500 border-0 py-1 px-3 focus:outline-none hover:bg-green-600 rounded text-base mt-4 md:mt-0">Sign Up</button></Link>
