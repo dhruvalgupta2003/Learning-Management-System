@@ -13,13 +13,23 @@ import Topbar from './components/Topbar.jsx';
 import Dashboard from './pages/dashboard.jsx';
 import Recommend from './pages/recommend.jsx';
 /** auth middleware */
+import Courses from './pages/courses.jsx';
 import { AuthorizeUser, ProtectRoute } from './middleware/auth.js'
+import Course from './pages/course.jsx';
 
 /**root routes */
 const router = createBrowserRouter([
     {
         path: '/',
         element: <Dashboard></Dashboard>
+    },
+    {
+        path: '/courses',
+        element: <Courses></Courses>
+    },
+    {
+        path: '/courses/:id',
+        element: <Course></Course>
     },
     {
         path: '/login',
